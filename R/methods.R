@@ -634,7 +634,7 @@ dec_cci <- function(object, celltype_sender, celltype_receiver, n_neighbor = 10,
         } else {
             receptor_tf <- .get_tf_res(celltype_sender, celltype_receiver, lrdb, ggi_tf, cell_pair, st_data, max_hop, co_exp_ratio)
         }
-        if (is.null(receptor_tf)) {
+        if (is.null(receptor_tf)|(nrow(receptor_tf)==0)) {
             stop(paste0("No LR pairs found between ", celltype_sender, " and ", celltype_receiver))
         }
         # calculate score
